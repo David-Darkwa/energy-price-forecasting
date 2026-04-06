@@ -1,14 +1,14 @@
 # Energy Price Forecasting Model
 
 **Author:** David Darkwa  
-**Major:** B.S. Energy Business Finance, Penn State (Expected May 2027)  
+**Major:** B.S. Energy Business Finance, Penn State (May 2027)  
 **Concentrations:** Finance · Energy Trade | **Minor:** Entrepreneurship & Innovation
 
 ---
 
 ## Overview
 
-This project forecasts short-term U.S. energy commodity prices using publicly available data from the Federal Reserve Economic Data (FRED) database. It applies three quantitative forecasting methods to WTI crude oil and Henry Hub natural gas prices and visualizes historical trends alongside 6-month projections.
+This project forecasts short term U.S. energy commodity prices using publicly available data from the Federal Reserve Economic Data (FRED) database. It applies three quantitative forecasting methods to WTI crude oil and Henry Hub natural gas prices and visualizes historical trends alongside 6 month projections.
 
 Built as an extension of commodity risk modeling work completed with the Penn State Energy Business & Finance Society, where I ranked 1st of 10 teams in a case competition modeling energy price shocks.
 
@@ -29,11 +29,11 @@ Built as an extension of commodity risk modeling work completed with the Penn St
 
 | Method | Description |
 |---|---|
-| **Simple Moving Average (SMA-12)** | Rolling 12-month mean — baseline trend signal |
-| **Exponential Weighted Average (EWA)** | More weight on recent prices (span=6) — captures momentum |
-| **Linear Trend Projection** | OLS regression on last 24 months — directional bias |
+| **Simple Moving Average (SMA-12)** | Rolling 12 month mean baseline trend signal |
+| **Exponential Weighted Average (EWA)** | More weight on recent prices (span=6) captures momentum |
+| **Linear Trend Projection** | OLS regression on last 24 months directional bias |
 
-Using multiple methods allows comparison of signals. When SMA and EWA converge but diverge from the linear trend, it typically indicates a mean-reverting market. When all three align, it suggests stronger directional conviction — relevant for hedging and trading decisions.
+Using multiple methods allows comparison of signals. When SMA and EWA converge but diverge from the linear trend, it typically indicates a mean reverting market. When all three align, it suggests stronger directional conviction relevant for hedging and trading decisions.
 
 ---
 
@@ -106,13 +106,13 @@ LOOKBACK_TREND  = 24   # months used for OLS trend fit
 
 ## Why These Methods
 
-These three methods represent a natural progression in time-series forecasting complexity:
+These three methods represent a natural progression in time series forecasting complexity:
 
-**SMA** is the baseline — it answers "where has the market been on average?" It dampens noise but lags turning points. A 12-month window captures the full seasonal cycle in natural gas markets.
+**SMA** is the baseline it answers "where has the market been on average?" It dampens noise but lags turning points. A 12-month window captures the full seasonal cycle in natural gas markets.
 
 **EWA** answers "where is the market going based on recent momentum?" By weighting recent observations more heavily, it responds faster to structural shifts like the 2022 energy crisis. The span parameter controls how quickly older data decays.
 
-**Linear Trend** answers "what does the medium-term directional bias look like?" Using OLS on the last 24 months isolates the slope without being overwhelmed by older structural regimes (e.g., pre-COVID price levels).
+**Linear Trend** answers "what does the medium term directional bias look like?" Using OLS on the last 24 months isolates the slope without being overwhelmed by older structural regimes (e.g., pre-COVID price levels).
 
 In practice, energy traders and risk analysts use combinations of these signals. This model is a foundation for more advanced approaches including ARIMA, GARCH volatility modeling, and regression against macroeconomic drivers (rig counts, storage levels, interest rates).
 
@@ -143,7 +143,7 @@ Planned extensions to this model:
 
 - [ ] Add ARIMA/SARIMA for seasonal decomposition
 - [ ] Incorporate storage inventory data (EIA Weekly Natural Gas Storage Report)
-- [ ] Add Value-at-Risk (VaR) calculation for a simple commodity portfolio
+- [ ] Add Value at Risk (VaR) calculation for a simple commodity portfolio
 - [ ] Regression model: price ~ rig count + CPI + USD index
 - [ ] Interactive dashboard using Streamlit
 
